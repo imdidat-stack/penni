@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Penni — A calmer way to manage money</title>
-  <meta name="description" content="Penni is a calm, beautiful personal finance app for iPhone. Track wallets, budgets, goals, and spending insights — private by design. Available on the App Store." />
+  <meta name="description" content="Penni is a calm, beautiful personal finance app for iPhone. Add expenses by voice or by scanning a receipt, and track wallets, budgets, goals, and spending insights — private by design. Available on the App Store." />
   <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#1b1a17" media="(prefers-color-scheme: dark)" />
   <link rel="icon" href="assets/appicon.png" />
@@ -25,7 +25,7 @@
       </a>
       <nav class="nav-links" aria-label="Primary">
         <a class="navlink" href="#features">Features</a>
-        <a class="btn btn-primary" href="https://apps.apple.com/us/app/penni-money-tracking/id6789282109">Get the app</a>
+        <a class="btn btn-primary" href="#download">Get the app</a>
       </nav>
     </div>
   </header>
@@ -40,12 +40,13 @@
           <p class="lead">
             Penni brings your wallets, budgets, and spending into one quiet,
             beautiful place — so you always know where you stand, without the stress.
+            Say an expense out loud or scan the receipt, and it’s logged.
           </p>
 
           <div class="cta-row" id="download">
             <div class="badges">
               <!-- App Store badge (replace href with your real App Store URL) -->
-              <a class="appstore-badge" href="https://apps.apple.com/us/app/penni-money-tracking/id6789282109" aria-label="Download Penni on the App Store">
+              <a class="appstore-badge" href="https://apps.apple.com/app/penni/id000000000" aria-label="Download Penni on the App Store">
                 <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" role="img">
                   <rect width="180" height="60" rx="13" fill="#000"/>
                   <g fill="#fff">
@@ -93,6 +94,20 @@
         </div>
 
         <div class="features">
+          <!-- Voice and receipt scanning lead: they're the two ways Penni saves you the
+               typing, and the reason the rest gets kept up to date at all. -->
+          <div class="feature reveal">
+            <div class="icon tint-ai"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+            <h3>Add by voice<span class="pro-tag">PRO</span></h3>
+            <p>Say “dinner at Luigi’s, 32 dollars on my card” and AI fills in the amount, category, merchant, and date. You just check it and save.</p>
+          </div>
+
+          <div class="feature reveal">
+            <div class="icon tint-scan"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8V6a2 2 0 0 1 2-2h2"/><path d="M17 4h2a2 2 0 0 1 2 2v2"/><path d="M21 16v2a2 2 0 0 1-2 2h-2"/><path d="M7 20H5a2 2 0 0 1-2-2v-2"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Scan a receipt</h3>
+            <p>Point your camera at a receipt and Penni reads the total, the store, and the date — right on your device, without sending it anywhere.</p>
+          </div>
+
           <div class="feature reveal">
             <div class="icon tint-accent"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M19 8V6.8A2.8 2.8 0 0 0 16.2 4H6a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10.5a2 2 0 0 0 2-2v-1"/><path d="M21 9.5h-3.8a2.5 2.5 0 0 0 0 5H21a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Z"/></svg></div>
             <h3>Wallets &amp; balances</h3>
@@ -123,10 +138,36 @@
             <p>A soft, easy-on-the-eyes theme for late-night check-ins — as considered as the light one.</p>
           </div>
 
+          <!-- No PRO tag: iCloud Sync is free for everyone, so nobody can lose their
+               records by not paying. `ProFeature` in the app has no sync case. -->
           <div class="feature reveal">
             <div class="icon tint-info"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 0 1-.5-7.97A5.5 5.5 0 0 1 17.6 9 4.5 4.5 0 0 1 17 18H7Z"/><path d="m10 14 2-2 2 2"/><path d="M12 12v5"/></svg></div>
-            <h3>iCloud backup &amp; sync<span class="pro-tag">PRO</span></h3>
-            <p>Your data is safely backed up and kept in sync across your devices — encrypted in your own iCloud.</p>
+            <h3>iCloud backup &amp; sync</h3>
+            <p>Your data is safely backed up and kept in sync across your devices — encrypted in your own iCloud. Free for everyone.</p>
+          </div>
+
+          <div class="feature reveal">
+            <div class="icon tint-positive"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><circle cx="12" cy="15.5" r="1.2" fill="currentColor" stroke="none"/></svg></div>
+            <h3>Locked with Face ID</h3>
+            <p>Keep your finances behind Face ID or Touch ID, so a glance at your phone never becomes a glance at your money.</p>
+          </div>
+
+          <div class="feature reveal">
+            <div class="icon tint-accent"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="8" height="8" rx="2"/><rect x="13" y="4" width="8" height="8" rx="2"/><rect x="3" y="14" width="8" height="6" rx="2"/><rect x="13" y="14" width="8" height="6" rx="2"/></svg></div>
+            <h3>Widgets &amp; Live Activities</h3>
+            <p>Put your balance and budgets on the Home Screen, and watch a budget tick along live on the Lock Screen and Dynamic Island.</p>
+          </div>
+
+          <div class="feature reveal">
+            <div class="icon tint-sage"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18Z"/></svg></div>
+            <h3>Any currency</h3>
+            <p>Give each wallet its own currency and pick the one you think in, from the full ISO list — the ones you’d expect are right at the top.</p>
+          </div>
+
+          <div class="feature reveal">
+            <div class="icon tint-positive"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1 0 1.7-.8 1.7-1.7 0-.5-.2-.9-.5-1.2-.3-.3-.5-.7-.5-1.1 0-1 .8-1.7 1.7-1.7H16a5 5 0 0 0 5-5c0-4-4-7.3-9-7.3Z"/><circle cx="7.5" cy="11" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="8" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11" r="1.1" fill="currentColor" stroke="none"/></svg></div>
+            <h3>Categories your way<span class="pro-tag">PRO</span></h3>
+            <p>Rename, recolor, and add your own categories from a library of 60 icons and 16 hand-picked colors, so your money is filed the way you think about it.</p>
           </div>
         </div>
       </div>
@@ -140,7 +181,7 @@
           <h2>Feel calm about money.</h2>
           <p>Download Penni for iPhone and start tracking your finances the calm way — free to get started.</p>
           <div class="badges">
-            <a class="appstore-badge" href="https://apps.apple.com/us/app/penni-money-tracking/id6789282109" aria-label="Download Penni on the App Store">
+            <a class="appstore-badge" href="https://apps.apple.com/app/penni/id000000000" aria-label="Download Penni on the App Store">
               <svg viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg" role="img">
                 <rect width="180" height="60" rx="13" fill="#000"/>
                 <g fill="#fff">
@@ -172,7 +213,7 @@
           <div class="footer-col">
             <h4>Product</h4>
             <a href="index.html#features">Features</a>
-            <a href="https://apps.apple.com/us/app/penni-money-tracking/id6789282109">Download</a>
+            <a href="https://apps.apple.com/app/penni/id000000000">Download</a>
           </div>
           <div class="footer-col">
             <h4>Legal</h4>
