@@ -39,6 +39,13 @@
   --forest: #3f7d5c;
   --sage: #7c9a6b;
 
+  /* Feature identities, echoing the app's own tokens: monochrome ink for anything
+     AI-powered, yellow for receipt scanning. Both are darkened from their in-app
+     values, which are fills behind a white glyph — here they're the stroke itself,
+     so they need to carry against a pale surface rather than sit under one. */
+  --ai: #121212;
+  --scan: #b0861f;
+
   /* Radius */
   --r-sm: 12px;
   --r-md: 16px;
@@ -88,6 +95,11 @@
     --ocean: #74a3dc;
     --forest: #63a985;
     --sage: #9dbb8b;
+
+    /* The ink inverts, exactly as `aiSurface` does in the app: on a warm near-black
+       canvas, black is the one color that can't be found. The yellow lifts instead. */
+    --ai: #f3f1ea;
+    --scan: #d7b44f;
 
     --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 14px rgba(0, 0, 0, 0.28);
     --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
@@ -252,18 +264,34 @@ p {
 }
 
 /* ----------------------------------------------------------------- Header */
+/* A capsule that floats over the page rather than a bar bolted to the top edge.
+   The header itself is now only the sticky positioner and the gutter that keeps the
+   capsule off the screen edges — all the material lives on `.nav` inside it. */
 .site-header {
   position: sticky;
-  top: 0;
+  top: 14px;
   z-index: 50;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  margin-top: 14px;
+  padding: 0 16px;
+  background: none;
+  border-bottom: none;
+}
+.site-header .nav {
+  height: 64px;
+  padding-left: 22px;
+  padding-right: 12px;
+  border-radius: var(--pill);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
   backdrop-filter: saturate(180%) blur(18px);
   -webkit-backdrop-filter: saturate(180%) blur(18px);
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  border: 1px solid var(--separator);
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.3s ease;
 }
-.site-header.scrolled {
-  border-bottom-color: var(--separator);
+/* Floating already separates it from the page, so scrolling only needs to deepen the
+   shadow — the old border-bottom would just draw a line across a capsule. */
+.site-header.scrolled .nav {
+  box-shadow: var(--shadow-card);
 }
 .nav {
   display: flex;
@@ -320,26 +348,7 @@ p {
 /* ------------------------------------------------------------------- Hero */
 .hero {
   position: relative;
-  overflow: hidden;
   padding: 72px 0 40px;
-}
-.hero::before {
-  /* soft warm glow behind the hero */
-  content: "";
-  position: absolute;
-  top: -280px;
-  left: 50%;
-  width: 900px;
-  height: 620px;
-  transform: translateX(-50%);
-  background: radial-gradient(
-    closest-side,
-    color-mix(in srgb, var(--splash) 26%, transparent),
-    transparent 70%
-  );
-  filter: blur(20px);
-  z-index: 0;
-  pointer-events: none;
 }
 .hero-grid {
   position: relative;
@@ -404,18 +413,24 @@ p {
   width: 300px;
   max-width: 82%;
   height: auto;
-  border-radius: 40px;
-  border: 1px solid var(--separator);
-  box-shadow: var(--shadow-float);
-  transition: transform 0.6s var(--ease-spring), box-shadow 0.3s ease;
+  /* The mockup is a transparent PNG that brings its own device frame, so there is
+     nothing here for a border or a box-shadow to sit on — both traced the image's
+     rectangle and painted a visible card behind the phone. `drop-shadow` follows the
+     alpha silhouette instead, so the shadow belongs to the phone and the corners stay
+     empty. Anything added back here must be silhouette-aware for the same reason. */
+  filter: drop-shadow(0 14px 34px rgba(34, 33, 29, 0.16));
+  transition: transform 0.6s var(--ease-spring), filter 0.3s ease;
 }
 .hero-shot img:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 64px rgba(34, 33, 29, 0.16), 0 4px 12px rgba(34, 33, 29, 0.08);
+  filter: drop-shadow(0 24px 52px rgba(34, 33, 29, 0.2));
 }
 @media (prefers-color-scheme: dark) {
+  .hero-shot img {
+    filter: drop-shadow(0 14px 34px rgba(0, 0, 0, 0.5));
+  }
   .hero-shot img:hover {
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.4);
+    filter: drop-shadow(0 24px 52px rgba(0, 0, 0, 0.6));
   }
 }
 
@@ -541,6 +556,16 @@ section {
   color: var(--sage);
   stroke: var(--sage);
 }
+.tint-ai {
+  background: color-mix(in srgb, var(--ai) 12%, transparent);
+  color: var(--ai);
+  stroke: var(--ai);
+}
+.tint-scan {
+  background: color-mix(in srgb, var(--scan) 18%, transparent);
+  color: var(--scan);
+  stroke: var(--scan);
+}
 
 /* Closing CTA */
 .cta-band {
@@ -594,10 +619,19 @@ section {
 }
 
 /* ----------------------------------------------------------------- Footer */
+/* Detached from the edges to match the floating header, so the page reads as content
+   sitting on a canvas rather than as a slab that runs into the window. Softly rounded
+   rather than a true capsule: the pill on the header works because it's one short row,
+   whereas a multi-column block that tall would just look like a lozenge. */
 .site-footer {
-  border-top: 1px solid var(--separator);
-  padding: 56px 0 40px;
-  margin-top: 40px;
+  width: calc(100% - 32px);
+  max-width: var(--maxw);
+  margin: 40px auto 16px;
+  padding: 48px 0 32px;
+  background: var(--surface);
+  border: 1px solid var(--separator);
+  border-radius: var(--r-xl);
+  box-shadow: var(--shadow-soft);
 }
 .footer-grid {
   display: flex;
