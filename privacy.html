@@ -32,7 +32,7 @@
         <div class="legal-head">
           <span class="eyebrow"><span class="dot"></span> Legal</span>
           <h1>Privacy Policy</h1>
-          <p class="updated">Last updated: July 10, 2026</p>
+          <p class="updated">Last updated: July 16, 2026</p>
         </div>
 
         <article class="legal-body">
@@ -45,10 +45,13 @@
           </p>
 
           <div class="callout">
-            <p><strong>The short version.</strong> Penni does not run its own servers for your
-            financial data, does not sell your data, and does not use third‑party advertising
+            <p><strong>The short version.</strong> Penni does not store your financial data on
+            our servers, does not sell your data, and does not use third‑party advertising
             or analytics trackers. The transactions, budgets, and balances you enter stay on
-            your device and sync only through your personal iCloud account if you enable it.</p>
+            your device and sync only through your personal iCloud account if you enable it.
+            The one exception is <strong>Add by Voice</strong>: if you choose to use it, what you
+            say is sent to our AI service to be turned into a transaction. It is never stored.
+            See <a href="#voice">Add by Voice (AI)</a>.</p>
           </div>
 
           <h2 id="collect">1. Information We Handle</h2>
@@ -57,7 +60,62 @@
           <p>
             When you use Penni, you can create wallets and record transactions, budgets,
             goals, categories, and related notes. This information is stored locally on your
-            device using Apple's on‑device database. It is not transmitted to us.
+            device using Apple's on‑device database. We do not collect it, and it is never
+            transmitted to us — except for the specific, optional case described in
+            <a href="#voice">Add by Voice (AI)</a> below.
+          </p>
+
+          <h3 id="voice">Add by Voice (AI)</h3>
+          <p>
+            <strong>Add by Voice</strong> is optional. You only use it if you tap the microphone
+            and speak.
+          </p>
+          <p>
+            Speech is turned into text on your device by Apple's speech recognition. When you
+            finish speaking, that text is sent over an encrypted connection to Penni's AI
+            service, which we operate on Google Firebase. To let the AI match what you said to
+            your own records, we also send the <em>names</em> of your wallets and categories
+            (for example "Bank", "Groceries") and your device's current local time. Our service
+            passes this to <strong>Google's Gemini API</strong>, which returns the structured
+            transaction — amount, category, merchant, date — that the app then shows you to
+            review before anything is saved.
+          </p>
+          <p>
+            What we do <strong>not</strong> do: we do not send your account identity, your
+            balances, your transaction history, or any other financial records. We do not store
+            what you say, and we do not keep the AI's response — the request passes through our
+            service and is discarded. Our logs record only timings and error codes, never the
+            words you spoke. We use Gemini's paid tier, under which Google does not use your
+            prompts or the responses to improve or train its models; Google processes the
+            request only to generate the response, and its handling is governed by the
+            <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Gemini API Terms</a>
+            and
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+          </p>
+          <p>
+            If you would rather no text ever leave your device, simply don't use Add by Voice —
+            every other way of adding a transaction is entirely on‑device.
+          </p>
+
+          <h3 id="receipts">Scan a Receipt (camera)</h3>
+          <p>
+            <strong>Scan a Receipt</strong> is optional. You only use it if you tap the camera
+            button and photograph a receipt.
+          </p>
+          <p>
+            Unlike Add by Voice, this feature involves <strong>no server and no AI service</strong>.
+            The photo is read entirely on your device using Apple's built-in text recognition,
+            which works offline. The amount, store, and date it finds are filled into a
+            transaction for you to review before anything is saved. The image is never uploaded
+            to us, and we never see it.
+          </p>
+          <p>
+            If you keep the scanned receipt with the transaction, the image is stored on your
+            device alongside your other records — and, exactly like the rest of them, is included
+            in your <a href="#storage">private iCloud</a> copy if you have iCloud Sync turned on.
+            You can remove an attached receipt at any time from the transaction itself. The
+            scanner uses the camera only while you are actively scanning, and cannot reach your
+            photo library.
           </p>
 
           <h3>Account information</h3>
@@ -91,6 +149,10 @@
             <li>To sync and back up your data through your own iCloud account, if you enable it.</li>
             <li>To manage and restore your Penni Pro subscription.</li>
             <li>To personalize your in‑app profile (name and optional photo).</li>
+            <li>To turn what you say into a transaction, if you choose to use
+                <a href="#voice">Add by Voice</a>.</li>
+            <li>To read a receipt you photograph — on your device only — if you choose to use
+                <a href="#receipts">Scan a Receipt</a>.</li>
           </ul>
           <p>We do <strong>not</strong> use your information for advertising, and we never sell or rent it.</p>
 
@@ -100,16 +162,31 @@
             Sync, a copy is stored in your <strong>private iCloud database</strong>, which is
             associated with your Apple Account and governed by
             <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a>.
-            We do not operate our own servers that store your transactions, balances, or budgets,
+            We do not operate any server that stores your transactions, balances, or budgets,
             and we cannot access your iCloud data.
           </p>
+          <p>
+            The one service we do run is the AI service behind
+            <a href="#voice">Add by Voice</a>. It holds nothing: a request arrives, it is
+            forwarded to Google's Gemini API, the answer is returned to your device, and
+            nothing is written down. There is no database, and no account of yours is attached
+            to the request.
+          </p>
 
-          <h2 id="apple">4. Apple Services</h2>
+          <h2 id="apple">4. Service Providers</h2>
           <p>
             Penni relies on services provided by Apple to function, including Sign in with Apple,
             iCloud (CloudKit), and the App Store / StoreKit for purchases. Your use of these
             services is subject to Apple's terms and privacy policy. We only receive the limited
             information described above.
+          </p>
+          <p>
+            If you use <a href="#voice">Add by Voice</a>, two further providers are involved, and
+            only for that feature: <strong>Google Firebase</strong>, which hosts the AI service we
+            run, and the <strong>Google Gemini API</strong>, which produces the transaction from
+            your words. Both are governed by
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.
+            Neither is used anywhere else in the app, and no other part of your data reaches them.
           </p>
 
           <h2 id="sharing">5. Sharing &amp; Disclosure</h2>
@@ -196,7 +273,7 @@
           <div class="footer-col">
             <h4>Product</h4>
             <a href="index.html#features">Features</a>
-            <a href="https://apps.apple.com/us/app/penni-money-tracking/id6789282109">Download</a>
+            <a href="https://apps.apple.com/app/penni/id000000000">Download</a>
           </div>
           <div class="footer-col">
             <h4>Legal</h4>
