@@ -1,43 +1,44 @@
 /* ============================================================================
    Penni — website styles
-   A calm, warm, premium design system mirroring the Penni iOS app:
-   papery off-white canvas, warm charcoal text, muted terracotta accent,
-   large rounded cards, subtle borders, generous whitespace, spring motion.
+   The "Vivid Coral" design system, mirroring the rebranded Penni iOS app:
+   clean near-white canvas, warm charcoal text, a vibrant coral accent,
+   re-saturated finance colors, large rounded cards, crisp hairline borders,
+   generous whitespace, spring motion — and no shadows.
    ========================================================================== */
 
 /* ----------------------------------------------------------------- Tokens */
 :root {
   /* Surfaces */
-  --bg: #f7f6f2;
+  --bg: #f9f8f5;
   --surface: #ffffff;
-  --surface-2: #f0eee7;
-  --fill: #eeece4;
-  --separator: #e7e4db;
-  --hairline: #efede6;
+  --surface-2: #f1efea;
+  --fill: #edebe4;
+  --separator: #e6e3db;
+  --hairline: #eeebe4;
 
   /* Text */
-  --text: #22211d;
-  --text-2: #6c6960;
-  --text-3: #9c988d;
+  --text: #1e1d1a;
+  --text-2: #6a6760;
+  --text-3: #9b968b;
   --on-accent: #ffffff;
 
-  /* Brand */
-  --accent: #c8715a;
-  --accent-2: #b5624c;
-  --accent-soft: #f4e7e0;
-  --splash: #e58463;
+  /* Brand — vibrant coral */
+  --accent: #f15540;
+  --accent-2: #dc4a30;
+  --accent-soft: #fce7e2;
+  --splash: #f15540;
 
-  /* Finance semantics */
-  --positive: #2e8b5c;
-  --positive-soft: #e3f1e9;
-  --negative: #c24338;
-  --negative-soft: #f6e4e1;
-  --warning: #c5842f;
-  --warning-soft: #f7ecd8;
-  --info: #3b6ea8;
-  --ocean: #3b6ea8;
-  --forest: #3f7d5c;
-  --sage: #7c9a6b;
+  /* Finance semantics — re-saturated */
+  --positive: #14a06a;
+  --positive-soft: #dff3e9;
+  --negative: #d62f36;
+  --negative-soft: #fbe4e2;
+  --warning: #e68a1e;
+  --warning-soft: #fbebd3;
+  --info: #2f6be0;
+  --ocean: #2f7be0;
+  --forest: #1f9d63;
+  --sage: #6fb25c;
 
   /* Feature identities, echoing the app's own tokens: monochrome ink for anything
      AI-powered, yellow for receipt scanning. Both are darkened from their in-app
@@ -53,10 +54,11 @@
   --r-xl: 32px;
   --pill: 999px;
 
-  /* Elevation */
-  --shadow-soft: 0 1px 2px rgba(34, 33, 29, 0.04), 0 4px 14px rgba(34, 33, 29, 0.05);
-  --shadow-card: 0 1px 2px rgba(34, 33, 29, 0.04), 0 10px 30px rgba(34, 33, 29, 0.07);
-  --shadow-float: 0 10px 40px rgba(34, 33, 29, 0.12), 0 2px 8px rgba(34, 33, 29, 0.06);
+  /* Elevation — the rebrand is shadowless; depth comes from surface contrast and
+     hairline borders. Kept as tokens so a shadow can be reintroduced in one place. */
+  --shadow-soft: none;
+  --shadow-card: none;
+  --shadow-float: none;
 
   /* Type */
   --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto,
@@ -70,40 +72,40 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1b1a17;
-    --surface: #262420;
-    --surface-2: #302e28;
-    --fill: #343129;
-    --separator: #393630;
-    --hairline: #322f29;
+    --bg: #151412;
+    --surface: #201e1b;
+    --surface-2: #2a2723;
+    --fill: #2e2a25;
+    --separator: #35312b;
+    --hairline: #2c2823;
 
-    --text: #f3f1ea;
-    --text-2: #ada89d;
-    --text-3: #7b766b;
-    --on-accent: #1b1712;
+    --text: #f4f2ec;
+    --text-2: #afa99e;
+    --text-3: #7c776c;
+    --on-accent: #2a120c;
 
-    --accent: #d98a6b;
-    --accent-2: #e29c80;
-    --accent-soft: #3a2c25;
+    --accent: #ff7159;
+    --accent-2: #ff8a70;
+    --accent-soft: #3a201a;
 
-    --positive: #54be8a;
-    --positive-soft: #203029;
-    --negative: #ec6f62;
-    --negative-soft: #37241f;
-    --warning: #e0a94f;
-    --info: #74a3dc;
-    --ocean: #74a3dc;
-    --forest: #63a985;
-    --sage: #9dbb8b;
+    --positive: #40c98c;
+    --positive-soft: #18342a;
+    --negative: #f26b62;
+    --negative-soft: #38201c;
+    --warning: #f5b94e;
+    --info: #6fa2f0;
+    --ocean: #63a6f5;
+    --forest: #4cc489;
+    --sage: #93d07e;
 
     /* The ink inverts, exactly as `aiSurface` does in the app: on a warm near-black
        canvas, black is the one color that can't be found. The yellow lifts instead. */
     --ai: #f3f1ea;
     --scan: #d7b44f;
 
-    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.3), 0 4px 14px rgba(0, 0, 0, 0.28);
-    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 10px 30px rgba(0, 0, 0, 0.35);
-    --shadow-float: 0 12px 44px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-soft: none;
+    --shadow-card: none;
+    --shadow-float: none;
   }
 }
 
@@ -399,9 +401,7 @@ p {
 .trust svg {
   width: 15px;
   height: 15px;
-  stroke: var(--positive);
-  fill: none;
-  stroke-width: 2.4;
+  fill: var(--positive);
 }
 
 /* ------------------------------------------------- App screenshot (hero) */
@@ -485,7 +485,7 @@ section {
   border-radius: var(--r-lg);
   padding: 28px 26px;
   box-shadow: var(--shadow-soft);
-  border: 1px solid transparent;
+  border: 1px solid var(--hairline);
   transition: transform 0.35s var(--ease-spring), box-shadow 0.3s ease,
     border-color 0.3s ease;
 }
@@ -505,8 +505,8 @@ section {
 .feature .icon svg {
   width: 24px;
   height: 24px;
-  stroke-width: 2;
-  fill: none;
+  fill: currentColor;
+  stroke: none;
 }
 .feature h3 {
   font-size: 1.24rem;
@@ -534,37 +534,136 @@ section {
 .tint-accent {
   background: var(--accent-soft);
   color: var(--accent);
-  stroke: var(--accent);
 }
 .tint-positive {
   background: var(--positive-soft);
   color: var(--positive);
-  stroke: var(--positive);
 }
 .tint-info {
   background: color-mix(in srgb, var(--info) 15%, transparent);
   color: var(--info);
-  stroke: var(--info);
 }
 .tint-warning {
   background: var(--warning-soft);
   color: var(--warning);
-  stroke: var(--warning);
 }
 .tint-sage {
   background: color-mix(in srgb, var(--sage) 18%, transparent);
   color: var(--sage);
-  stroke: var(--sage);
 }
 .tint-ai {
   background: color-mix(in srgb, var(--ai) 12%, transparent);
   color: var(--ai);
-  stroke: var(--ai);
 }
 .tint-scan {
   background: color-mix(in srgb, var(--scan) 18%, transparent);
   color: var(--scan);
-  stroke: var(--scan);
+}
+
+/* ------------------------------------------------- Screens gallery */
+/* A full-bleed scroll rail rather than a grid: the app itself presents wallets,
+   insights, and goals as horizontal carousels, so the site showing its screens the same
+   way is the design system talking, not a new pattern. Only the heading stays in the
+   container — the rail runs off the edge so it reads as something to scroll. */
+.shots-wrap {
+  position: relative;
+}
+.shots {
+  margin-top: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  /* Must match `.shots-track`'s horizontal padding, so a snapped phone lands on the
+     container's edge instead of under the gutter. Both percentages resolve against this
+     same element, so the two expressions stay in step. */
+  scroll-padding-left: max(24px, calc((100% - var(--maxw)) / 2 + 24px));
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.shots::-webkit-scrollbar {
+  display: none;
+}
+.shots-track {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: max-content;
+  /* Lines the first phone up with the container's left edge on wide screens, then falls
+     back to the plain gutter once the viewport is narrower than the container. */
+  padding: 4px max(24px, calc((100% - var(--maxw)) / 2 + 24px));
+}
+.shot {
+  flex: 0 0 auto;
+  width: 236px;
+  margin: 0;
+  /* `start`, not `center`: centering the first phone means the rail's resting position
+     is a few px in rather than 0, which left the "previous" arrow permanently enabled
+     with nothing behind it. Aligning to the start also keeps each snap landing on the
+     same edge the heading sits on. */
+  scroll-snap-align: start;
+}
+/* No shadow: these mockups draw their own device frame, and any shadow underneath only
+   competes with it. The phone is the object — nothing else needs to say so. */
+.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Rail controls. The peeking next phone hints that the row continues, but a hint isn't
+   a control — on a pointer device there was no way to actually move it. These are the
+   way. Touch keeps its own swipe, so they're hidden there rather than sat over the art. */
+.shots-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--separator);
+  border-radius: var(--pill);
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  box-shadow: var(--shadow-soft);
+  color: var(--text);
+  cursor: pointer;
+  transition: opacity 0.25s ease, transform 0.25s var(--ease-spring),
+    background 0.2s ease;
+}
+.shots-nav:hover {
+  transform: translateY(-50%) scale(1.06);
+  background: var(--surface);
+}
+.shots-nav:active {
+  transform: translateY(-50%) scale(0.94);
+}
+.shots-nav svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  stroke: none;
+}
+/* Fade out at the ends rather than sitting there dead — a control you can press that
+   does nothing is worse than no control. */
+.shots-nav[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+.shots-nav.prev {
+  left: max(16px, calc((100% - var(--maxw)) / 2 - 8px));
+}
+.shots-nav.next {
+  right: max(16px, calc((100% - var(--maxw)) / 2 - 8px));
+}
+@media (hover: none), (max-width: 620px) {
+  .shots-nav {
+    display: none;
+  }
 }
 
 /* Closing CTA */
@@ -795,6 +894,14 @@ section {
   }
   .hero-shot img {
     transform: none;
+  }
+  .shots {
+    scroll-snap-type: none;
+  }
+  .shots-nav,
+  .shots-nav:hover {
+    transform: translateY(-50%);
+    transition: opacity 0.25s ease;
   }
 }
 
